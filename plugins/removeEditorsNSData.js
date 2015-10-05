@@ -46,6 +46,10 @@ exports.fn = function(item, params) {
                 }
             });
 
+        } else if (item.isElem('foreignObject')){//check if foreign object required one of our prohibited NS, remove if so
+            if (item.hasAttr('requiredExtensions') && editorNamespaces.indexOf(item.attr('requiredExtensions').value)){
+                return false;
+            }
         }
 
         // <* sodipodi:*="">
