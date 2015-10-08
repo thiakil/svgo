@@ -99,6 +99,66 @@ describe('svg2js', function() {
                 return root.content[2].doctype.should.equal(' svg PUBLIC \"-//W3C//DTD SVG 1.1//EN\" \"http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd\"');
             });
 
+            it('should have content', function() {
+                return root.content[2].should.have.property('content');
+            });
+
+            it('should have length 2', function() {
+                return root.content[2].content.should.have.lengthOf(4);
+            });
+
+        });
+
+        describe('internal entity', function(){
+
+            it('should have entity property', function(){
+                return root.content[2].content[0].should.have.property('entity');
+            });
+
+            it('should have entity.name property', function(){
+                return root.content[2].content[0].entity.should.have.property('name');
+            });
+
+            it('entity.name should equal ns_extend', function(){
+                return root.content[2].content[0].entity.name.should.equal('ns_extend');
+            });
+
+            it('should have entity.raw property', function(){
+                return root.content[2].content[0].entity.should.have.property('raw');
+            });
+
+            it('should have entity.value property', function(){
+                return root.content[2].content[0].entity.should.have.property('value');
+            });
+
+            it('entity.value should equal http://ns.adobe…', function(){
+                return root.content[2].content[0].entity.value.should.equal('http://ns.adobe.com/Extensibility/1.0/');
+            });
+
+            it('entity.raw should contain "ns_extend …"', function(){
+                return root.content[2].content[0].entity.raw.should.containEql('ns_extend "http://ns.adobe.com/Extensibility/1.0/"');
+            });
+
+        });
+
+        describe('external entity', function(){
+
+            it('should have entity property', function(){
+                return root.content[2].content[2].should.have.property('entity');
+            });
+
+            it('should have entity.name property', function(){
+                return root.content[2].content[2].entity.should.have.property('name');
+            });
+
+            it('should have entity.raw property', function(){
+                return root.content[2].content[2].entity.should.have.property('raw');
+            });
+
+            it('should contain "name SYSTEM "URI""', function(){
+                return root.content[2].content[2].entity.raw.should.containEql('name SYSTEM "URI"');
+            });
+
         });
 
         describe('elem', function() {
