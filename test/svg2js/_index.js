@@ -123,10 +123,6 @@ describe('svg2js', function() {
                 return root.content[2].content[0].entity.name.should.equal('ns_extend');
             });
 
-            it('should have entity.raw property', function(){
-                return root.content[2].content[0].entity.should.have.property('raw');
-            });
-
             it('should have entity.value property', function(){
                 return root.content[2].content[0].entity.should.have.property('value');
             });
@@ -135,28 +131,16 @@ describe('svg2js', function() {
                 return root.content[2].content[0].entity.value.should.equal('http://ns.adobe.com/Extensibility/1.0/');
             });
 
-            it('entity.raw should contain "ns_extend …"', function(){
-                return root.content[2].content[0].entity.raw.should.containEql('ns_extend "http://ns.adobe.com/Extensibility/1.0/"');
-            });
-
         });
 
         describe('external entity', function(){
 
             it('should have entity property', function(){
-                return root.content[2].content[2].should.have.property('entity');
-            });
-
-            it('should have entity.name property', function(){
-                return root.content[2].content[2].entity.should.have.property('name');
-            });
-
-            it('should have entity.raw property', function(){
-                return root.content[2].content[2].entity.should.have.property('raw');
+                return root.content[2].content[2].should.have.property('sgml');
             });
 
             it('should contain "name SYSTEM "URI""', function(){
-                return root.content[2].content[2].entity.raw.should.containEql('name SYSTEM "URI"');
+                return root.content[2].content[2].sgml.should.equal('ENTITY name SYSTEM "URI"');
             });
 
         });
