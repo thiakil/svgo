@@ -2,8 +2,8 @@
     <!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
     <!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
 ]>
-<svg xmlns="http://www.w3.org/2000/svg">
-    test
+<svg xmlns="http://www.w3.org/2000/svg" test="&ns_extend;">
+    test &ns_ai;
 </svg>
 
 @@@
@@ -12,6 +12,6 @@
     <!ENTITY ns_extend "http://ns.adobe.com/Extensibility/1.0/">
     <!ENTITY ns_ai "http://ns.adobe.com/AdobeIllustrator/10.0/">
 ]>
-<svg xmlns="http://www.w3.org/2000/svg">
-    test
+<svg xmlns="http://www.w3.org/2000/svg" test="&ns_extend;">
+    test &ns_ai;
 </svg>
